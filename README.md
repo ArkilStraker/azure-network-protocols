@@ -22,7 +22,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>High-Level Steps</h2>
 
 - Install Wireshark and Observe Traffic
-- Step 2
+- Configuring a Firewall [Network Security Group]
 - Step 3
 - Step 4
 
@@ -35,15 +35,21 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 </p>
 <p>
-By installing Wireshark and capturing traffic, you can directly observe how data moves across the network. Wireshark provides deep insight into communication between hosts, helps troubleshoot problems, and teaches how different protocols operate. This makes it a valuable tool for both network administration and security analysis.
+In this task, we established a Remote Desktop connection to a Windows 11 Virtual Machine and verified network connectivity by successfully pinging a Linux Virtual Machine from within the Windows 11 environment. By installing Wireshark and capturing traffic, you can directly observe how data moves across the network. Wireshark provides deep insight into communication between hosts, helps troubleshoot problems, and teaches how different protocols operate. This makes it a valuable tool for both network administration and security analysis.
 </p>
 <br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p><img width="349" height="780" alt="image" src="https://github.com/user-attachments/assets/57084dd9-b524-46bc-8307-5cc6ae98d465" />
+<img width="946" height="389" alt="image" src="https://github.com/user-attachments/assets/7abe1be0-702d-456a-8a0c-85f8286e23c2" />
+<img width="1038" height="619" alt="image" src="https://github.com/user-attachments/assets/bec22a52-5145-4e55-af97-230a59fa1455" />
+<img width="1209" height="615" alt="image" src="https://github.com/user-attachments/assets/8bbe07bb-e008-4739-8bc3-3e215dc7bea5" />
+
+
+
+
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In this task, we initiated a continuous ping from the Windows 11 Virtual Machine to the Linux Virtual Machine and monitored the ICMP traffic using Wireshark. We then configured the Network Security Group (NSG) for the Linux Virtual Machine to deny all ICMP traffic and observed the resulting changes in Wireshark. We then removed the rule for the (NSG) and captured the rsults.
 </p>
 <br />
 
