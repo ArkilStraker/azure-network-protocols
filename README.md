@@ -23,7 +23,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 - Install Wireshark and Observe Traffic
 - Configuring a Firewall [Network Security Group]
-- Step 3
+- Observe SSH Traffic
 - Step 4
 
 <h2>Actions and Observations</h2>
@@ -50,6 +50,15 @@ In this task, we established a Remote Desktop connection to a Windows 11 Virtual
 </p>
 <p>
 In this task, we initiated a continuous ping from the Windows 11 Virtual Machine to the Linux Virtual Machine and monitored the ICMP traffic using Wireshark. We then configured the Network Security Group (NSG) for the Linux Virtual Machine to deny all ICMP traffic and observed the resulting changes in Wireshark. We then removed the rule from the Linux Virtual Machine NSG and captured the rsults.
+</p>
+<br />
+
+<p>
+<img width="1120" height="739" alt="image" src="https://github.com/user-attachments/assets/fde57f7a-217b-477b-b5bb-79a7dc4509e4" />
+
+</p>
+<p>
+In this task, we established an SSH connection from the Windows 11 Virtual Machine to the Linux Virtual Machine and monitored the communication using Wireshark. By applying a filter for SSH traffic, we were able to observe the encrypted session packets in real time. By using Wireshark to observe SSH traffic, you can confirm that encrypted sessions are being established between client and server. Although you can’t see the commands due to encryption, you can analyze session handshakes, packet flow, and connectivity. This validates both the security of SSH and the ability to monitor its presence on the network.
 </p>
 <br />
 
