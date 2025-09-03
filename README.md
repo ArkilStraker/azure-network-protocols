@@ -115,7 +115,7 @@ In this task, we used Wireshark to analyze Remote Desktop Protocol (RDP) traffic
 
 - tcp.port == 3389
 
-we immediately observed a constant, non-stop stream of packets. This behavior is expected because RDP is an interactive protocol that continuously transmits data to keep the remote session active.
+We immediately observed a constant, non-stop stream of packets. This behavior is expected because RDP is an interactive protocol that continuously transmits data to keep the remote session active.
 This lab highlighted the difference between on-demand protocols and continuous streaming protocols. RDP falls into the latter, which explains why filtering for TCP port 3389 shows what appears to be “spam” traffic; it is in fact the ongoing live session between the client and server.
 </p>
 <br />
