@@ -49,7 +49,7 @@ In this task, we established a Remote Desktop connection to a Windows 11 Virtual
 
 </p>
 <p>
-In this task, we initiated a continuous ping from the Windows 11 Virtual Machine to the Linux Virtual Machine and monitored the ICMP traffic using Wireshark. We then configured the Network Security Group (NSG) for the Linux Virtual Machine to deny all ICMP traffic and observed the resulting changes in Wireshark. We then removed the rule for the (NSG) and captured the rsults.
+In this task, we initiated a continuous ping from the Windows 11 Virtual Machine to the Linux Virtual Machine and monitored the ICMP traffic using Wireshark. We then configured the Network Security Group (NSG) for the Linux Virtual Machine to deny all ICMP traffic and observed the resulting changes in Wireshark. We then removed the rule from the Linux Virtual Machine NSG and captured the rsults.
 </p>
 <br />
 
