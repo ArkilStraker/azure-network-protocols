@@ -24,7 +24,9 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Install Wireshark and Observe Traffic
 - Configuring a Firewall [Network Security Group]
 - Observe SSH Traffic
-- Step 4
+- Observe DHCP Traffic
+- Observe DNS Traffic
+- Observe RDP Traffic
 
 <h2>Actions and Observations</h2>
 
@@ -63,9 +65,57 @@ In this task, we established an SSH connection from the Windows 11 Virtual Machi
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="1234" height="489" alt="image" src="https://github.com/user-attachments/assets/d5adec09-8962-40f2-8849-bc9a3995f382" />
+
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In this task, we used PowerShell on a Windows 11 Virtual Machine to release and renew the IP address with the following commands:
+
+- ipconfig /release
+- ipconfig /renew
+
+While performing this operation, we captured the traffic in Wireshark to analyze the DHCP transaction. The capture showed the standard DORA process:
+
+
+- Discover – the client broadcasts a request for an IP address.
+- Offer – the DHCP server responds with an available IP.
+- Request – the client requests to use the offered IP.
+- Acknowledge – the server confirms and assigns the IP lease.
+
+By observing these packets in Wireshark, we verified that the client successfully obtained a new IP address from the DHCP server and confirmed proper communication between client and server.
+</p>
+<br />
+
+<p>
+<img width="1009" height="618" alt="image" src="https://github.com/user-attachments/assets/a89adf35-3953-498b-9271-fd2b48e42cbd" />
+</p>
+<p>
+  Wireshark captured and displayed the following activity:
+
+- DNS Query (Standard Query Request) – the Windows client sent a request packet to the configured DNS server asking for the IP address of www.netflix.com.
+- DNS Response (Standard Query Response) – the DNS server replied with the resolved IP address.
+
+By applying the dns display filter in Wireshark, we were able to isolate and analyze only DNS-related packets. We observed:
+
+- The source IP of the Windows 11 VM and the destination IP of the DNS server.
+- The protocol (UDP over port 53) used for the query.
+- The transaction ID that links the request and response.
+- The response section showing the resolved IP address for the domain.
+  
+This lab confirmed how DNS queries and responses flow over the network and demonstrated how Wireshark can be used to validate and troubleshoot name resolution.
+</p>
+<br />
+
+<p>
+<img width="947" height="618" alt="image" src="https://github.com/user-attachments/assets/a6ddd82d-12ad-4455-8d9b-16b808b7b1ac" />
+
+</p>
+<p>
+In this task, we used Wireshark to analyze Remote Desktop Protocol (RDP) traffic between a Windows 11 Virtual Machine and another system. By applying the filter:
+
+- tcp.port == 3389
+
+we immediately observed a constant, non-stop stream of packets. This behavior is expected because RDP is an interactive protocol that continuously transmits data to keep the remote session active.
+This lab highlighted the difference between on-demand protocols and continuous streaming protocols. RDP falls into the latter, which explains why filtering for TCP port 3389 shows what appears to be “spam” traffic; it is in fact the ongoing live session between the client and server.
 </p>
 <br />
